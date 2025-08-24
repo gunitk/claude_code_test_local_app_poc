@@ -3,6 +3,7 @@ import json
 from abc import ABC, abstractmethod
 from anthropic import Anthropic
 import google.generativeai as genai
+from config.prompts import PromptManager
 
 class AIProvider(ABC):
     """Abstract base class for AI providers"""
@@ -28,6 +29,7 @@ class ClaudeProvider(AIProvider):
     def __init__(self):
         self.api_key = os.getenv('ANTHROPIC_API_KEY')
         self.client = None
+        self.prompt_manager = PromptManager()
         if self.api_key:
             try:
                 self.client = Anthropic(api_key=self.api_key)
@@ -49,7 +51,7 @@ class ClaudeProvider(AIProvider):
         if not self.is_available():
             raise ValueError("Claude API key not configured")
         
-        prompt = self._create_test_generation_prompt(context, template)
+        prompt = self.prompt_manager.get_prompt("claude", "web", context, template)
         
         try:
             response = self.client.messages.create(
@@ -69,63 +71,6 @@ class ClaudeProvider(AIProvider):
         except Exception as e:
             raise Exception(f"Failed to generate test cases using Claude API: {str(e)}")
     
-    def _create_test_generation_prompt(self, context, template=None):
-        """Create a comprehensive prompt for Claude to generate test cases"""
-        
-        base_prompt = f"""
-Based on the following web application analysis, generate comprehensive test cases for testing this application. 
-
-Application Context:
-{context}
-
-Please generate test cases that cover:
-1. Functional testing (forms, buttons, navigation)
-2. UI/UX testing (layout, responsiveness)
-3. Data validation testing
-4. Error handling testing
-5. Security testing (basic)
-6. Performance testing (basic)
-7. Accessibility testing (basic)
-
-For each test case, provide:
-- name: A clear, descriptive name
-- description: What the test case validates
-- priority: High/Medium/Low
-- category: Functional/UI/Security/Performance/Accessibility/Data Validation/Error Handling
-- steps: Detailed step-by-step instructions
-- expected_result: What should happen when the test passes
-- test_data: Any specific data needed for the test (if applicable)
-
-Please format your response as a valid JSON array of test case objects. Ensure the JSON is properly formatted and parseable.
-
-Example format:
-[
-  {{
-    "name": "Login Form Validation",
-    "description": "Verify that login form validates required fields",
-    "priority": "High",
-    "category": "Functional",
-    "steps": [
-      "Navigate to login page",
-      "Leave username field empty",
-      "Leave password field empty", 
-      "Click submit button"
-    ],
-    "expected_result": "Form should display validation errors for both fields",
-    "test_data": {{
-      "username": "",
-      "password": ""
-    }}
-  }}
-]
-
-Generate at least 15-20 comprehensive test cases covering all aspects of the application.
-"""
-        
-        if template:
-            base_prompt += f"\n\nCustom Template Requirements:\n{json.dumps(template, indent=2)}"
-        
-        return base_prompt
     
     def _parse_test_cases(self, response_text):
         """Parse Claude's response to extract test cases"""
@@ -202,6 +147,7 @@ class GeminiProvider(AIProvider):
     
     def __init__(self):
         self.api_key = os.getenv('GEMINI_API_KEY')
+        self.prompt_manager = PromptManager()
         if self.api_key:
             try:
                 genai.configure(api_key=self.api_key)
@@ -227,7 +173,7 @@ class GeminiProvider(AIProvider):
         if not self.is_available():
             raise ValueError("Gemini API key not configured")
         
-        prompt = self._create_test_generation_prompt(context, template)
+        prompt = self.prompt_manager.get_prompt("gemini", "web", context, template)
         
         try:
             response = self.model.generate_content(prompt)
@@ -240,59 +186,6 @@ class GeminiProvider(AIProvider):
         except Exception as e:
             raise Exception(f"Failed to generate test cases using Gemini API: {str(e)}")
     
-    def _create_test_generation_prompt(self, context, template=None):
-        """Create a comprehensive prompt for Gemini to generate test cases"""
-        
-        base_prompt = f"""
-You are a QA expert tasked with creating comprehensive test cases for a web application.
-
-Application Analysis:
-{context}
-
-Generate test cases covering these categories:
-1. Functional Testing: Forms, buttons, navigation, core features
-2. UI/UX Testing: Layout, responsiveness, visual elements
-3. Data Validation: Input validation, form validation, data integrity
-4. Error Handling: Invalid inputs, edge cases, error messages
-5. Security Testing: Basic security checks, XSS prevention, authentication
-6. Performance Testing: Page load times, response times
-7. Accessibility Testing: Screen readers, keyboard navigation
-
-For each test case, provide these fields:
-- name: Clear, descriptive test name
-- description: What the test validates
-- priority: "High", "Medium", or "Low"
-- category: One of the categories above
-- steps: Array of detailed step-by-step instructions
-- expected_result: Expected outcome when test passes
-- test_data: Object with any test data needed (can be empty {{}})
-
-IMPORTANT: Respond with ONLY a valid JSON array. No additional text, explanations, or markdown formatting.
-
-Example structure:
-[
-  {{
-    "name": "Page Load Validation",
-    "description": "Verify the main page loads correctly",
-    "priority": "High",
-    "category": "Functional",
-    "steps": [
-      "Navigate to the application URL",
-      "Wait for page to fully load",
-      "Verify page title is displayed"
-    ],
-    "expected_result": "Page loads without errors and shows expected content",
-    "test_data": {{}}
-  }}
-]
-
-Generate 15-20 comprehensive test cases as a JSON array:
-"""
-        
-        if template:
-            base_prompt += f"\n\nAdditional template requirements:\n{json.dumps(template, indent=2)}"
-        
-        return base_prompt
     
     def _parse_test_cases(self, response_text):
         """Parse Gemini's response to extract test cases"""

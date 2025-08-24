@@ -46,18 +46,20 @@ This is a Flask-based AI-powered test case generation system that analyzes local
 - Abstract base class pattern in `AIProvider` with concrete implementations for Claude and Gemini
 - Fallback provider system: automatically switches to available provider if primary fails
 - Provider manager handles API key validation and provider selection
+- Centralized prompt management in `config/prompts.py` with provider-specific templates
 - Standardized test case format across all AI providers with validation and enhancement
 
 **Application Analysis Pipeline:**
 1. `AppAnalyzer` uses Selenium + BeautifulSoup for comprehensive web app analysis
 2. `AppTypeManager` routes different URL types to appropriate handlers (currently local apps only)
 3. Context generation extracts forms, buttons, navigation, technologies, and page structure
-4. AI providers receive structured context and generate test cases using provider-specific prompts
+4. AI providers receive structured context and generate test cases using centralized prompt templates from `PromptManager`
 
 ### Key Architectural Patterns
 
 **Provider Pattern:** `AIProviderManager` abstracts multiple AI APIs (Claude, Gemini) with automatic fallback
-**Template System:** `config/templates.py` defines extensible test case templates for different application types
+**Template System:** `config/templates.py` defines extensible test case templates for different application types  
+**Prompt Management:** `config/prompts.py` centralizes all AI prompt templates with provider-specific formatting
 **Handler Chain:** `config/app_types.py` contains handler classes for different app types (local vs internet)
 **Session Management:** UUID-based sessions with file downloads stored in `downloads/{session_id}/`
 
@@ -82,6 +84,14 @@ Required environment variables:
 - `ANTHROPIC_API_KEY`: For Claude AI integration
 - `GEMINI_API_KEY`: For Gemini AI integration  
 - `DEFAULT_AI_PROVIDER`: Primary AI provider selection ("claude" or "gemini")
+
+### Prompt Customization
+
+Prompt templates are centralized in `config/prompts.py`:
+- **PromptManager** handles provider-specific prompt formatting
+- **Provider-specific prompts** optimize for each AI model's strengths (Claude vs Gemini)
+- **Extensible design** supports future test types (API, mobile) and custom prompt templates
+- **Template injection** allows runtime customization of test case requirements
 
 ### Future Architecture Considerations
 
