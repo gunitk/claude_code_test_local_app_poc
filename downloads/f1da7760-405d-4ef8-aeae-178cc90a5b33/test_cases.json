@@ -1,0 +1,221 @@
+[
+  {
+    "id": 1,
+    "name": "Page Load Validation",
+    "description": "Verify the main page loads correctly",
+    "priority": "High",
+    "category": "Functional",
+    "steps": [
+      "Navigate to https://www.saucedemo.com/",
+      "Wait for page to fully load",
+      "Verify page title is 'Swag Labs'"
+    ],
+    "expected_result": "Page loads without errors and shows expected content",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 2,
+    "name": "Successful Login",
+    "description": "Verify successful login with valid credentials",
+    "priority": "High",
+    "category": "Functional",
+    "steps": [
+      "Enter valid username 'standard_user'",
+      "Enter valid password 'secret_sauce'",
+      "Click login button",
+      "Wait for page to load"
+    ],
+    "expected_result": "User is redirected to the products page",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 3,
+    "name": "Failed Login - Incorrect Password",
+    "description": "Verify error message with incorrect password",
+    "priority": "High",
+    "category": "Error Handling",
+    "steps": [
+      "Enter valid username 'standard_user'",
+      "Enter invalid password 'wrong_password'",
+      "Click login button"
+    ],
+    "expected_result": "Error message is displayed",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 4,
+    "name": "Failed Login - Locked Out User",
+    "description": "Verify error message with locked out user",
+    "priority": "Medium",
+    "category": "Error Handling",
+    "steps": [
+      "Enter username 'locked_out_user'",
+      "Enter password 'secret_sauce'",
+      "Click login button"
+    ],
+    "expected_result": "Error message is displayed",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 5,
+    "name": "Login Form Validation - Empty Fields",
+    "description": "Verify error message with empty username and password",
+    "priority": "High",
+    "category": "Data Validation",
+    "steps": [
+      "Leave username field empty",
+      "Leave password field empty",
+      "Click login button"
+    ],
+    "expected_result": "Error message is displayed",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 6,
+    "name": "Responsive Design - Mobile View",
+    "description": "Verify layout adapts to mobile screen size",
+    "priority": "Medium",
+    "category": "UI/UX",
+    "steps": [
+      "Resize browser window to simulate mobile screen",
+      "Verify all elements are visible and functional"
+    ],
+    "expected_result": "Layout adapts correctly to mobile view",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 7,
+    "name": "Visual Elements - Correct Images",
+    "description": "Verify all images load correctly",
+    "priority": "Medium",
+    "category": "UI/UX",
+    "steps": [
+      "Check all images on login and products page"
+    ],
+    "expected_result": "All images load without errors",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 8,
+    "name": "Page Load Time",
+    "description": "Measure page load time for login page",
+    "priority": "Medium",
+    "category": "Performance",
+    "steps": [
+      "Use browser developer tools to measure load time"
+    ],
+    "expected_result": "Load time is within acceptable range (e.g., under 3 seconds)",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 9,
+    "name": "Keyboard Navigation",
+    "description": "Verify navigation using only keyboard",
+    "priority": "Medium",
+    "category": "Accessibility",
+    "steps": [
+      "Navigate through login form using only tab key",
+      "Verify ability to submit form using Enter key"
+    ],
+    "expected_result": "All elements are accessible via keyboard",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 10,
+    "name": "Screen Reader Compatibility",
+    "description": "Verify screen reader compatibility",
+    "priority": "Low",
+    "category": "Accessibility",
+    "steps": [
+      "Use a screen reader to navigate the login page",
+      "Verify all elements are correctly announced"
+    ],
+    "expected_result": "Screen reader announces all elements correctly",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 11,
+    "name": "Login Form - Input Validation - Username Length",
+    "description": "Verify input validation for username field length",
+    "priority": "Medium",
+    "category": "Data Validation",
+    "steps": [
+      "Enter a username exceeding the maximum allowed length",
+      "Attempt to submit the form"
+    ],
+    "expected_result": "An appropriate error message is displayed, preventing submission.",
+    "test_data": {
+      "username": "exceedinglylongusernamethatshouldfailvalidation"
+    },
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 12,
+    "name": "Login Form - Input Validation - Special Characters",
+    "description": "Verify input validation for special characters in username",
+    "priority": "Medium",
+    "category": "Data Validation",
+    "steps": [
+      "Enter a username containing special characters (!@#$%^&*)",
+      "Attempt to submit the form"
+    ],
+    "expected_result": "The form either accepts the input or displays an appropriate error message.",
+    "test_data": {
+      "username": "user!@#name"
+    },
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 13,
+    "name": "XSS Prevention - Username Field",
+    "description": "Check for Cross-Site Scripting vulnerability in username field",
+    "priority": "High",
+    "category": "Security",
+    "steps": [
+      "Enter '<script>alert('XSS')</script>' in the username field",
+      "Attempt to submit the form"
+    ],
+    "expected_result": "The script should not execute; the input should be sanitized.",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 14,
+    "name": "XSS Prevention - Password Field",
+    "description": "Check for Cross-Site Scripting vulnerability in password field",
+    "priority": "High",
+    "category": "Security",
+    "steps": [
+      "Enter '<script>alert('XSS')</script>' in the password field",
+      "Attempt to submit the form"
+    ],
+    "expected_result": "The script should not execute; the input should be sanitized.",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 15,
+    "name": "Authentication - Session Management",
+    "description": "Verify session management after successful login",
+    "priority": "High",
+    "category": "Security",
+    "steps": [
+      "Successfully login",
+      "Close and reopen the browser",
+      "Check if the user is still logged in"
+    ],
+    "expected_result": "The user should be logged out after closing and reopening the browser.",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  }
+]

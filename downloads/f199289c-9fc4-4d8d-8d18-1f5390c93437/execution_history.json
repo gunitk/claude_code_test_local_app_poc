@@ -1,0 +1,121 @@
+{
+  "summary": {
+    "total_tests": 10,
+    "passed": 9,
+    "failed": 1,
+    "execution_time": "0:00:29.706096",
+    "timestamp": "2025-08-24T18:07:49.911425"
+  },
+  "results": [
+    {
+      "test_id": 1,
+      "test_name": "Page Load Validation",
+      "category": "Functional",
+      "priority": "High",
+      "status": "passed",
+      "execution_time": "4.27s",
+      "details": "Page loaded successfully. Title: 'Calculator'",
+      "error": null,
+      "timestamp": "2025-08-24T18:07:49.911498"
+    },
+    {
+      "test_id": 2,
+      "test_name": "Button Functionality: Number Input",
+      "category": "Functional",
+      "priority": "High",
+      "status": "passed",
+      "execution_time": "3.14s",
+      "details": "Button test passed. Found 3 clickable buttons",
+      "error": null,
+      "timestamp": "2025-08-24T18:07:54.178785"
+    },
+    {
+      "test_id": 3,
+      "test_name": "Button Functionality: Basic Operations",
+      "category": "Functional",
+      "priority": "High",
+      "status": "passed",
+      "execution_time": "3.15s",
+      "details": "Button test passed. Found 3 clickable buttons",
+      "error": null,
+      "timestamp": "2025-08-24T18:07:57.319277"
+    },
+    {
+      "test_id": 4,
+      "test_name": "Button Functionality: Clear Button",
+      "category": "Functional",
+      "priority": "High",
+      "status": "passed",
+      "execution_time": "3.14s",
+      "details": "Button test passed. Found 3 clickable buttons",
+      "error": null,
+      "timestamp": "2025-08-24T18:08:00.471108"
+    },
+    {
+      "test_id": 5,
+      "test_name": "Error Handling: Division by Zero",
+      "category": "Error Handling",
+      "priority": "High",
+      "status": "passed",
+      "execution_time": "3.16s",
+      "details": "Generic functional test passed - page loads and has content",
+      "error": null,
+      "timestamp": "2025-08-24T18:08:03.615013"
+    },
+    {
+      "test_id": 6,
+      "test_name": "UI/UX: Responsiveness",
+      "category": "UI/UX",
+      "priority": "Medium",
+      "status": "passed",
+      "execution_time": "3.28s",
+      "details": "Generic functional test passed - page loads and has content",
+      "error": null,
+      "timestamp": "2025-08-24T18:08:06.773310"
+    },
+    {
+      "test_id": 7,
+      "test_name": "UI/UX: Visual Consistency",
+      "category": "UI/UX",
+      "priority": "Medium",
+      "status": "passed",
+      "execution_time": "3.16s",
+      "details": "Generic functional test passed - page loads and has content",
+      "error": null,
+      "timestamp": "2025-08-24T18:08:10.048804"
+    },
+    {
+      "test_id": 8,
+      "test_name": "Data Validation: Input Type",
+      "category": "Data Validation",
+      "priority": "Medium",
+      "status": "passed",
+      "execution_time": "3.12s",
+      "details": "Generic functional test passed - page loads and has content",
+      "error": null,
+      "timestamp": "2025-08-24T18:08:13.204329"
+    },
+    {
+      "test_id": 9,
+      "test_name": "Performance: Page Load Time",
+      "category": "Performance",
+      "priority": "Medium",
+      "status": "passed",
+      "execution_time": "0.01s",
+      "details": "Performance test passed - page loaded in 0.01s",
+      "error": null,
+      "timestamp": "2025-08-24T18:08:16.325101"
+    },
+    {
+      "test_id": 10,
+      "test_name": "Accessibility: Keyboard Navigation",
+      "category": "Accessibility",
+      "priority": "Medium",
+      "status": "failed",
+      "execution_time": "3.29s",
+      "details": "No working navigation links found",
+      "error": null,
+      "timestamp": "2025-08-24T18:08:16.331371"
+    }
+  ]
+}

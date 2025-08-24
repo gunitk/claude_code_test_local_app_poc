@@ -1,0 +1,239 @@
+[
+  {
+    "id": 1,
+    "name": "Page Load Validation",
+    "description": "Verify the main page loads correctly",
+    "priority": "High",
+    "category": "Functional",
+    "steps": [
+      "Navigate to http://localhost:8080",
+      "Wait for page to fully load"
+    ],
+    "expected_result": "Page loads without errors and displays calculator buttons",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 2,
+    "name": "Button Functionality: Number Input",
+    "description": "Verify number buttons input correctly",
+    "priority": "High",
+    "category": "Functional",
+    "steps": [
+      "Click button '1'",
+      "Click button '2'",
+      "Click button '3'"
+    ],
+    "expected_result": "Display shows '123'",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 3,
+    "name": "Button Functionality: Basic Operations",
+    "description": "Verify basic operations (+,-,*,/)",
+    "priority": "High",
+    "category": "Functional",
+    "steps": [
+      "Input '2'",
+      "Click '+'",
+      "Input '2'",
+      "Click '='"
+    ],
+    "expected_result": "Display shows '4'",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 4,
+    "name": "Button Functionality: Clear Button",
+    "description": "Verify 'C' button clears the display",
+    "priority": "High",
+    "category": "Functional",
+    "steps": [
+      "Input '123'",
+      "Click 'C'"
+    ],
+    "expected_result": "Display shows '0'",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 5,
+    "name": "Error Handling: Division by Zero",
+    "description": "Verify handling of division by zero",
+    "priority": "High",
+    "category": "Error Handling",
+    "steps": [
+      "Input '10'",
+      "Click '/'",
+      "Input '0'",
+      "Click '='"
+    ],
+    "expected_result": "Display shows an appropriate error message (e.g., 'Error', 'Division by zero')",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 6,
+    "name": "UI/UX: Responsiveness",
+    "description": "Verify responsive design on different screen sizes",
+    "priority": "Medium",
+    "category": "UI/UX",
+    "steps": [
+      "Resize browser window to various sizes (e.g., mobile, tablet, desktop)"
+    ],
+    "expected_result": "Calculator layout adapts to different screen sizes without overlapping elements",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 7,
+    "name": "UI/UX: Visual Consistency",
+    "description": "Verify consistent visual style and font usage",
+    "priority": "Medium",
+    "category": "UI/UX",
+    "steps": [
+      "Inspect all visual elements for consistent styling"
+    ],
+    "expected_result": "All elements maintain a consistent visual appearance",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 8,
+    "name": "Data Validation: Input Type",
+    "description": "Verify only numeric inputs are allowed",
+    "priority": "Medium",
+    "category": "Data Validation",
+    "steps": [
+      "Attempt to input characters (e.g., 'a', 'b', 'c')"
+    ],
+    "expected_result": "Invalid characters are ignored or generate an appropriate error message",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 9,
+    "name": "Performance: Page Load Time",
+    "description": "Measure page load time",
+    "priority": "Medium",
+    "category": "Performance",
+    "steps": [
+      "Use browser developer tools to measure page load time"
+    ],
+    "expected_result": "Page load time is within acceptable limits",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 10,
+    "name": "Accessibility: Keyboard Navigation",
+    "description": "Verify keyboard navigation functionality",
+    "priority": "Medium",
+    "category": "Accessibility",
+    "steps": [
+      "Navigate using only the keyboard"
+    ],
+    "expected_result": "All buttons and functionalities are accessible using keyboard",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 11,
+    "name": "Security: XSS Prevention (Basic)",
+    "description": "Attempt basic XSS attack",
+    "priority": "Medium",
+    "category": "Security",
+    "steps": [
+      "Attempt to input <script>alert('XSS')</script>"
+    ],
+    "expected_result": "Script should not execute; input is either blocked or sanitized",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 12,
+    "name": "Large Number Calculation",
+    "description": "Test calculation with large numbers",
+    "priority": "Medium",
+    "category": "Functional",
+    "steps": [
+      "Input '1000000000'",
+      "Click '+'",
+      "Input '1000000000'",
+      "Click '='"
+    ],
+    "expected_result": "Display shows correct result (2000000000)",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 13,
+    "name": "Multiple Operations",
+    "description": "Test calculation with multiple operations",
+    "priority": "Medium",
+    "category": "Functional",
+    "steps": [
+      "Input '2'",
+      "Click '+'",
+      "Input '3'",
+      "Click '*'",
+      "Input '4'",
+      "Click '='"
+    ],
+    "expected_result": "Display shows correct result (20)",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 14,
+    "name": "Negative Number Calculation",
+    "description": "Test calculation with negative numbers",
+    "priority": "Medium",
+    "category": "Functional",
+    "steps": [
+      "Input '-2'",
+      "Click '+'",
+      "Input '5'",
+      "Click '='"
+    ],
+    "expected_result": "Display shows correct result (3)",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 15,
+    "name": "Decimal Number Calculation",
+    "description": "Test calculation with decimal numbers",
+    "priority": "Medium",
+    "category": "Functional",
+    "steps": [
+      "Input '2.5'",
+      "Click '+'",
+      "Input '3.5'",
+      "Click '='"
+    ],
+    "expected_result": "Display shows correct result (6)",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 16,
+    "name": "Consecutive Operations",
+    "description": "Test consecutive operations without intermediate '='",
+    "priority": "Medium",
+    "category": "Functional",
+    "steps": [
+      "Input '2'",
+      "Click '+'",
+      "Input '3'",
+      "Click '+'",
+      "Input '4'",
+      "Click '='"
+    ],
+    "expected_result": "Display shows correct result (9)",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  }
+]

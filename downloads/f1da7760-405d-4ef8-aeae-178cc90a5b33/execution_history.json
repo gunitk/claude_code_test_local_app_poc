@@ -1,0 +1,121 @@
+{
+  "summary": {
+    "total_tests": 10,
+    "passed": 7,
+    "failed": 3,
+    "execution_time": "0:00:27.709919",
+    "timestamp": "2025-08-24T18:10:01.950086"
+  },
+  "results": [
+    {
+      "test_id": 1,
+      "test_name": "Page Load Validation",
+      "category": "Functional",
+      "priority": "High",
+      "status": "passed",
+      "execution_time": "5.23s",
+      "details": "Page loaded successfully. Title: 'Swag Labs'",
+      "error": null,
+      "timestamp": "2025-08-24T18:10:01.950166"
+    },
+    {
+      "test_id": 2,
+      "test_name": "Successful Login",
+      "category": "Functional",
+      "priority": "High",
+      "status": "passed",
+      "execution_time": "3.65s",
+      "details": "Generic functional test passed - page loads and has content",
+      "error": null,
+      "timestamp": "2025-08-24T18:10:07.185749"
+    },
+    {
+      "test_id": 3,
+      "test_name": "Failed Login - Incorrect Password",
+      "category": "Error Handling",
+      "priority": "High",
+      "status": "passed",
+      "execution_time": "3.56s",
+      "details": "Generic functional test passed - page loads and has content",
+      "error": null,
+      "timestamp": "2025-08-24T18:10:10.831192"
+    },
+    {
+      "test_id": 5,
+      "test_name": "Login Form Validation - Empty Fields",
+      "category": "Data Validation",
+      "priority": "High",
+      "status": "passed",
+      "execution_time": "3.87s",
+      "details": "Form test passed. Filled 2 form fields",
+      "error": null,
+      "timestamp": "2025-08-24T18:10:14.393147"
+    },
+    {
+      "test_id": 13,
+      "test_name": "XSS Prevention - Username Field",
+      "category": "Security",
+      "priority": "High",
+      "status": "failed",
+      "execution_time": "0.22s",
+      "details": "Security test failed - no common security headers found",
+      "error": null,
+      "timestamp": "2025-08-24T18:10:18.264599"
+    },
+    {
+      "test_id": 14,
+      "test_name": "XSS Prevention - Password Field",
+      "category": "Security",
+      "priority": "High",
+      "status": "failed",
+      "execution_time": "0.23s",
+      "details": "Security test failed - no common security headers found",
+      "error": null,
+      "timestamp": "2025-08-24T18:10:18.484714"
+    },
+    {
+      "test_id": 15,
+      "test_name": "Authentication - Session Management",
+      "category": "Security",
+      "priority": "High",
+      "status": "failed",
+      "execution_time": "0.23s",
+      "details": "Security test failed - no common security headers found",
+      "error": null,
+      "timestamp": "2025-08-24T18:10:18.711958"
+    },
+    {
+      "test_id": 4,
+      "test_name": "Failed Login - Locked Out User",
+      "category": "Error Handling",
+      "priority": "Medium",
+      "status": "passed",
+      "execution_time": "3.65s",
+      "details": "Generic functional test passed - page loads and has content",
+      "error": null,
+      "timestamp": "2025-08-24T18:10:18.938679"
+    },
+    {
+      "test_id": 6,
+      "test_name": "Responsive Design - Mobile View",
+      "category": "UI/UX",
+      "priority": "Medium",
+      "status": "passed",
+      "execution_time": "3.51s",
+      "details": "Generic functional test passed - page loads and has content",
+      "error": null,
+      "timestamp": "2025-08-24T18:10:22.584164"
+    },
+    {
+      "test_id": 7,
+      "test_name": "Visual Elements - Correct Images",
+      "category": "UI/UX",
+      "priority": "Medium",
+      "status": "passed",
+      "execution_time": "3.57s",
+      "details": "Generic functional test passed - page loads and has content",
+      "error": null,
+      "timestamp": "2025-08-24T18:10:26.092096"
+    }
+  ]
+}

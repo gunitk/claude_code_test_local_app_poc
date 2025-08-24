@@ -1,0 +1,218 @@
+[
+  {
+    "id": 1,
+    "name": "Page Load Validation",
+    "description": "Verify the main page loads correctly",
+    "priority": "High",
+    "category": "Functional",
+    "steps": [
+      "Navigate to http://localhost:8080",
+      "Wait for page to fully load"
+    ],
+    "expected_result": "Page loads without errors and displays calculator buttons",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 2,
+    "name": "Button Functionality: Basic Arithmetic",
+    "description": "Verify basic arithmetic operations (+, -, *, /)",
+    "priority": "High",
+    "category": "Functional",
+    "steps": [
+      "Enter 2 + 2 =",
+      "Enter 5 - 3 =",
+      "Enter 4 * 6 =",
+      "Enter 10 / 2 ="
+    ],
+    "expected_result": "Correct results are displayed for each operation",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 3,
+    "name": "Button Functionality: Zero",
+    "description": "Verify the '0' button functionality",
+    "priority": "Medium",
+    "category": "Functional",
+    "steps": [
+      "Enter 0",
+      "Enter 5 + 0 ="
+    ],
+    "expected_result": "Zero is displayed correctly and functions in calculations",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 4,
+    "name": "Button Functionality: Clear Button",
+    "description": "Verify the 'C' button clears the display",
+    "priority": "Medium",
+    "category": "Functional",
+    "steps": [
+      "Enter 5 + 5",
+      "Press C",
+      "Verify display is cleared"
+    ],
+    "expected_result": "Display is cleared after pressing 'C'",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 5,
+    "name": "Layout Validation",
+    "description": "Verify the layout of the calculator",
+    "priority": "Medium",
+    "category": "UI/UX",
+    "steps": [
+      "Observe the arrangement of buttons and display"
+    ],
+    "expected_result": "Buttons and display are arranged logically and neatly",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 6,
+    "name": "Responsiveness",
+    "description": "Check if the calculator is responsive on different screen sizes",
+    "priority": "Medium",
+    "category": "UI/UX",
+    "steps": [
+      "Resize the browser window to different sizes"
+    ],
+    "expected_result": "Calculator layout adapts well to different screen sizes",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 7,
+    "name": "Division by Zero",
+    "description": "Test the handling of division by zero",
+    "priority": "High",
+    "category": "Error Handling",
+    "steps": [
+      "Enter 5 / 0 ="
+    ],
+    "expected_result": "Appropriate error message is displayed (e.g., 'Division by zero')",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 8,
+    "name": "Invalid Input",
+    "description": "Test the handling of invalid input (e.g., letters)",
+    "priority": "High",
+    "category": "Error Handling",
+    "steps": [
+      "Enter abc"
+    ],
+    "expected_result": "Invalid input is ignored or handled appropriately (e.g., no response, error message)",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 9,
+    "name": "Large Number Calculation",
+    "description": "Test calculations with large numbers",
+    "priority": "Medium",
+    "category": "Error Handling",
+    "steps": [
+      "Enter 999999999999999 * 999999999999999 ="
+    ],
+    "expected_result": "Calculates correctly or indicates overflow if it exceeds the limit",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 10,
+    "name": "Keyboard Navigation",
+    "description": "Verify keyboard navigation functionality",
+    "priority": "Medium",
+    "category": "Accessibility",
+    "steps": [
+      "Use keyboard to interact with calculator buttons"
+    ],
+    "expected_result": "All buttons are accessible and functional via keyboard",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 11,
+    "name": "Screen Reader Compatibility",
+    "description": "Check compatibility with screen readers",
+    "priority": "Medium",
+    "category": "Accessibility",
+    "steps": [
+      "Test with a screen reader (e.g., JAWS, NVDA)"
+    ],
+    "expected_result": "Screen reader correctly announces buttons and results",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 12,
+    "name": "Page Load Time",
+    "description": "Measure the time it takes for the page to load",
+    "priority": "Low",
+    "category": "Performance",
+    "steps": [
+      "Use browser developer tools to measure page load time"
+    ],
+    "expected_result": "Page load time is within acceptable limits (e.g., < 2 seconds)",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 13,
+    "name": "Calculation Response Time",
+    "description": "Measure the time it takes for calculations to complete",
+    "priority": "Low",
+    "category": "Performance",
+    "steps": [
+      "Perform several complex calculations and measure response times"
+    ],
+    "expected_result": "Calculation response time is within acceptable limits",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 14,
+    "name": "XSS Prevention",
+    "description": "Test for Cross-Site Scripting vulnerabilities",
+    "priority": "High",
+    "category": "Security",
+    "steps": [
+      "Attempt to inject malicious scripts into input fields"
+    ],
+    "expected_result": "Malicious scripts are not executed; the application correctly handles and sanitizes inputs.",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 15,
+    "name": "Consecutive Operations",
+    "description": "Test performing multiple operations consecutively",
+    "priority": "Medium",
+    "category": "Functional",
+    "steps": [
+      "Enter 2 + 2 * 3 ="
+    ],
+    "expected_result": "Correct result according to order of operations (PEMDAS/BODMAS)",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 16,
+    "name": "Decimal Numbers",
+    "description": "Test functionality with decimal numbers",
+    "priority": "Medium",
+    "category": "Functional",
+    "steps": [
+      "Enter 2.5 + 3.5 =",
+      "Enter 10 / 2.5 ="
+    ],
+    "expected_result": "Correct results are displayed for decimal calculations",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  }
+]

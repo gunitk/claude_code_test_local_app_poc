@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local App Test Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-5">Local App Test Generator</h1>
+        
+        <!-- Step 1: URL Input -->
+        <div class="card mb-4" id="url-input-section">
+            <div class="card-header">
+                <h3>Step 1: Enter Local App URL</h3>
+            </div>
+            <div class="card-body">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="appUrl" placeholder="http://localhost:8080" value="http://localhost:8080">
+                    <button class="btn btn-primary" type="button" id="analyzeBtn">Analyze App</button>
+                </div>
+                <div id="analyzeSpinner" class="d-none text-center">
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Analyzing...</span>
+                    </div>
+                    <p>Browsing and analyzing the application...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2: App Context -->
+        <div class="card mb-4 d-none" id="context-section">
+            <div class="card-header">
+                <h3>Step 2: Application Context & AI Provider</h3>
+            </div>
+            <div class="card-body">
+                <div id="appContext" class="mb-3"></div>
+                
+                <!-- AI Provider Selection -->
+                <div class="mb-3">
+                    <label for="aiProvider" class="form-label">Choose AI Provider:</label>
+                    <select class="form-select" id="aiProvider">
+                        <option value="">Loading providers...</option>
+                    </select>
+                    <div class="form-text">Select which AI model to use for generating test cases.</div>
+                </div>
+                
+                <button class="btn btn-success" id="generateTestsBtn">Generate Test Cases</button>
+                <div id="generateSpinner" class="d-none text-center mt-3">
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Generating...</span>
+                    </div>
+                    <p>Generating test cases using AI...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3: Test Cases -->
+        <div class="card mb-4 d-none" id="testcases-section">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h3>Step 3: Generated Test Cases</h3>
+                <button class="btn btn-outline-primary" id="downloadTestsBtn">Download Test Cases</button>
+            </div>
+            <div class="card-body">
+                <div id="testCasesList"></div>
+                <button class="btn btn-warning mt-3" id="executeTestsBtn">Execute Top 10 Test Cases</button>
+                <div id="executeSpinner" class="d-none text-center mt-3">
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Executing...</span>
+                    </div>
+                    <p>Executing test cases...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 4: Execution Results -->
+        <div class="card mb-4 d-none" id="results-section">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h3>Step 4: Execution History</h3>
+                <button class="btn btn-outline-success" id="downloadResultsBtn">Download Execution History</button>
+            </div>
+            <div class="card-body">
+                <div id="executionResults"></div>
+            </div>
+        </div>
+
+        <!-- Future Features Info -->
+        <div class="card mb-4" id="future-features">
+            <div class="card-header">
+                <h3>Future Features</h3>
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li><strong>Template Support:</strong> Custom test case templates and execution plans</li>
+                    <li><strong>Internet Apps:</strong> Support for testing applications hosted on the internet</li>
+                    <li><strong>Advanced Analytics:</strong> Detailed performance and coverage reports</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
