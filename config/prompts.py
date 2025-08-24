@@ -232,6 +232,8 @@ class PromptManager:
     def add_custom_prompt(self, provider, test_type, prompt_template):
         """Add custom prompt template (future feature)"""
         # Future implementation for custom prompts
+        # TODO: Implement custom prompt storage and validation
+        # Will use provider, test_type, and prompt_template parameters
         pass
     
     def list_available_prompts(self):
