@@ -61,7 +61,15 @@
         <div class="card mb-4 d-none" id="testcases-section">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h3>Step 3: Generated Test Cases</h3>
-                <button class="btn btn-outline-primary" id="downloadTestsBtn">Download Test Cases</button>
+                <div class="dropdown">
+                    <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Download Test Cases
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#" id="downloadTestsJSONBtn">📄 JSON Format</a></li>
+                        <li><a class="dropdown-item" href="#" id="downloadTestsExcelBtn">📊 Excel Format</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="card-body">
                 <div id="testCasesList"></div>
@@ -79,7 +87,15 @@
         <div class="card mb-4 d-none" id="results-section">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h3>Step 4: Execution History</h3>
-                <button class="btn btn-outline-success" id="downloadResultsBtn">Download Execution History</button>
+                <div class="dropdown">
+                    <button class="btn btn-outline-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Download Execution History
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#" id="downloadResultsJSONBtn">📄 JSON Format</a></li>
+                        <li><a class="dropdown-item" href="#" id="downloadResultsExcelBtn">📊 Excel Format</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="card-body">
                 <div id="executionResults"></div>

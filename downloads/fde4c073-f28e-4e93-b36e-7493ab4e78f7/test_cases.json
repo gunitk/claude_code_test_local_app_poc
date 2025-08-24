@@ -1,0 +1,224 @@
+[
+  {
+    "id": 1,
+    "name": "Page Load Validation",
+    "description": "Verify the main page loads correctly",
+    "priority": "High",
+    "category": "Functional",
+    "steps": [
+      "Navigate to http://localhost:8080",
+      "Wait for page to fully load"
+    ],
+    "expected_result": "Page loads without errors and displays calculator buttons",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 2,
+    "name": "Button Functionality: Basic Arithmetic",
+    "description": "Verify basic arithmetic operations (+, -, *, /)",
+    "priority": "High",
+    "category": "Functional",
+    "steps": [
+      "Enter 5",
+      "Click +",
+      "Enter 3",
+      "Click =",
+      "Verify result is 8"
+    ],
+    "expected_result": "Correct result is displayed",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 3,
+    "name": "Button Functionality: Zero Input",
+    "description": "Verify calculation with zero",
+    "priority": "Medium",
+    "category": "Functional",
+    "steps": [
+      "Enter 5",
+      "Click +",
+      "Enter 0",
+      "Click =",
+      "Verify result is 5"
+    ],
+    "expected_result": "Correct result is displayed",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 4,
+    "name": "Button Functionality: Clear Button",
+    "description": "Verify 'C' button functionality",
+    "priority": "Medium",
+    "category": "Functional",
+    "steps": [
+      "Enter 5",
+      "Click C",
+      "Verify display is empty"
+    ],
+    "expected_result": "Display is cleared",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 5,
+    "name": "Error Handling: Division by Zero",
+    "description": "Verify handling of division by zero",
+    "priority": "High",
+    "category": "Error Handling",
+    "steps": [
+      "Enter 5",
+      "Click /",
+      "Enter 0",
+      "Click ="
+    ],
+    "expected_result": "Appropriate error message is displayed (e.g., 'Division by zero')",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 6,
+    "name": "UI/UX Testing: Responsive Design",
+    "description": "Verify layout on different screen sizes",
+    "priority": "Medium",
+    "category": "UI/UX Testing",
+    "steps": [
+      "Resize browser window to different sizes (e.g., mobile, tablet, desktop)"
+    ],
+    "expected_result": "Layout adapts appropriately to different screen sizes without overlapping elements",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 7,
+    "name": "UI/UX Testing: Visual Consistency",
+    "description": "Verify consistent visual elements across the application",
+    "priority": "Medium",
+    "category": "UI/UX Testing",
+    "steps": [
+      "Check for consistent font sizes, button styles, spacing"
+    ],
+    "expected_result": "Visual elements are consistent throughout the application",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 8,
+    "name": "Data Validation: Invalid Input",
+    "description": "Verify handling of invalid input (e.g., letters)",
+    "priority": "High",
+    "category": "Data Validation",
+    "steps": [
+      "Try to enter letters into the calculator"
+    ],
+    "expected_result": "Invalid input is ignored or an error message is shown",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 9,
+    "name": "Performance Testing: Page Load Time",
+    "description": "Measure page load time",
+    "priority": "Medium",
+    "category": "Performance Testing",
+    "steps": [
+      "Measure page load time using browser developer tools"
+    ],
+    "expected_result": "Page loads within an acceptable timeframe (e.g., under 2 seconds)",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 10,
+    "name": "Accessibility Testing: Keyboard Navigation",
+    "description": "Verify keyboard navigation",
+    "priority": "Medium",
+    "category": "Accessibility Testing",
+    "steps": [
+      "Use keyboard to navigate and perform calculations"
+    ],
+    "expected_result": "All elements are accessible via keyboard",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 11,
+    "name": "Security Testing: XSS Prevention (Basic)",
+    "description": "Check for basic XSS vulnerabilities",
+    "priority": "High",
+    "category": "Security Testing",
+    "steps": [
+      "Try to inject malicious script into input fields (e.g., <script>alert('XSS')</script>)"
+    ],
+    "expected_result": "Malicious script is not executed",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 12,
+    "name": "Functional Testing: Large Numbers",
+    "description": "Verify handling of large numbers",
+    "priority": "Medium",
+    "category": "Functional",
+    "steps": [
+      "Enter very large numbers and perform calculations"
+    ],
+    "expected_result": "Calculations are performed correctly without overflow errors",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 13,
+    "name": "Functional Testing: Negative Numbers",
+    "description": "Verify calculations with negative numbers",
+    "priority": "Medium",
+    "category": "Functional",
+    "steps": [
+      "Enter negative numbers and perform calculations"
+    ],
+    "expected_result": "Calculations are performed correctly with negative numbers",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 14,
+    "name": "Functional Testing: Decimal Numbers",
+    "description": "Verify calculations with decimal numbers",
+    "priority": "Medium",
+    "category": "Functional",
+    "steps": [
+      "Enter decimal numbers and perform calculations"
+    ],
+    "expected_result": "Calculations are performed correctly with decimal numbers",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 15,
+    "name": "Error Handling: Overflow",
+    "description": "Verify handling of number overflow",
+    "priority": "Medium",
+    "category": "Error Handling",
+    "steps": [
+      "Try to enter a number exceeding the maximum allowed value"
+    ],
+    "expected_result": "Appropriate error message is displayed or input is capped",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  },
+  {
+    "id": 16,
+    "name": "Error Handling: Invalid Operators",
+    "description": "Verify handling of invalid operators",
+    "priority": "Medium",
+    "category": "Error Handling",
+    "steps": [
+      "Try using an invalid operator (e.g., '%', '^')"
+    ],
+    "expected_result": "Appropriate error message is displayed or the invalid operator is ignored",
+    "test_data": {},
+    "estimated_time": "5 minutes"
+  }
+]

@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 from services.app_analyzer import AppAnalyzer
 from services.test_generator import TestGenerator
 from services.test_executor import TestExecutor
+from services.excel_exporter import ExcelExporter
 
 load_dotenv()
 
@@ -121,6 +122,38 @@ def download_execution(session_id):
         return send_file(f'downloads/{session_id}/execution_history.json', as_attachment=True)
     except Exception as e:
         return jsonify({'error': str(e)}), 404
+
+@app.route('/download-tests-excel/<session_id>')
+def download_tests_excel(session_id):
+    """Download test cases in Excel format"""
+    try:
+        # Load test cases from JSON file
+        with open(f'downloads/{session_id}/test_cases.json', 'r') as f:
+            test_cases = json.load(f)
+        
+        # Create Excel file
+        exporter = ExcelExporter()
+        excel_path = exporter.export_test_cases(test_cases, session_id)
+        
+        return send_file(excel_path, as_attachment=True, download_name=f'test_cases_{session_id}.xlsx')
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/download-execution-excel/<session_id>')
+def download_execution_excel(session_id):
+    """Download execution results in Excel format"""
+    try:
+        # Load execution history from JSON file
+        with open(f'downloads/{session_id}/execution_history.json', 'r') as f:
+            execution_data = json.load(f)
+        
+        # Create Excel file
+        exporter = ExcelExporter()
+        excel_path = exporter.export_execution_results(execution_data, session_id)
+        
+        return send_file(excel_path, as_attachment=True, download_name=f'execution_results_{session_id}.xlsx')
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=8000)

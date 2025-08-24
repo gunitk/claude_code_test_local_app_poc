@@ -7,14 +7,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const analyzeBtn = document.getElementById('analyzeBtn');
     const generateTestsBtn = document.getElementById('generateTestsBtn');
     const executeTestsBtn = document.getElementById('executeTestsBtn');
-    const downloadTestsBtn = document.getElementById('downloadTestsBtn');
-    const downloadResultsBtn = document.getElementById('downloadResultsBtn');
+    
+    // New dropdown download buttons
+    const downloadTestsJSONBtn = document.getElementById('downloadTestsJSONBtn');
+    const downloadTestsExcelBtn = document.getElementById('downloadTestsExcelBtn');
+    const downloadResultsJSONBtn = document.getElementById('downloadResultsJSONBtn');
+    const downloadResultsExcelBtn = document.getElementById('downloadResultsExcelBtn');
 
     analyzeBtn.addEventListener('click', analyzeApp);
     generateTestsBtn.addEventListener('click', generateTests);
     executeTestsBtn.addEventListener('click', executeTests);
-    downloadTestsBtn.addEventListener('click', downloadTests);
-    downloadResultsBtn.addEventListener('click', downloadResults);
+    
+    // Download event listeners
+    downloadTestsJSONBtn.addEventListener('click', downloadTestsJSON);
+    downloadTestsExcelBtn.addEventListener('click', downloadTestsExcel);
+    downloadResultsJSONBtn.addEventListener('click', downloadResultsJSON);
+    downloadResultsExcelBtn.addEventListener('click', downloadResultsExcel);
     
     // Load AI providers on page load
     loadAIProviders();
@@ -180,15 +188,33 @@ async function executeTests() {
     }
 }
 
-function downloadTests() {
+// JSON Download Functions
+function downloadTestsJSON(event) {
+    event.preventDefault();
     if (sessionId) {
         window.location.href = `/download-tests/${sessionId}`;
     }
 }
 
-function downloadResults() {
+function downloadResultsJSON(event) {
+    event.preventDefault();
     if (sessionId) {
         window.location.href = `/download-execution/${sessionId}`;
+    }
+}
+
+// Excel Download Functions
+function downloadTestsExcel(event) {
+    event.preventDefault();
+    if (sessionId) {
+        window.location.href = `/download-tests-excel/${sessionId}`;
+    }
+}
+
+function downloadResultsExcel(event) {
+    event.preventDefault();
+    if (sessionId) {
+        window.location.href = `/download-execution-excel/${sessionId}`;
     }
 }
 
